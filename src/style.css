@@ -1,0 +1,270 @@
+/* calibration */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/* map  */
+
+#map {
+    height: 100vh;
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* ol controls overwrite */
+
+.ol-control button {
+    background-color: #00595e;
+}
+
+.ol-zoom {
+    right: .5em;
+    top: 2.7em;
+    left: unset;
+}
+
+.map:-webkit-full-screen {
+    height: 100%;
+    margin: 0;
+}
+
+.map:-ms-fullscreen {
+    height: 100%;
+}
+
+.map:fullscreen {
+    height: 100%;
+}
+
+
+/* layer switcher overwrite */
+
+.layer-switcher button {
+    background-image: url(./img/layers.svg);
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 32px;
+    height: 32px;
+}
+
+.layer-switcher {
+    left: .5em;
+    top: .5em;
+    right: unset;
+    z-index: 3;
+}
+
+.layer-panel {
+    width: 300px;
+    height: 100vh;
+    z-index: 1;
+    background-color: white;
+    box-shadow: -20px 3px 28px 10px;
+}
+
+.layer-panel h2 {
+    padding: 15px;
+    background-color: #00595e;
+    color: white;
+}
+
+.layer-panel h3 {
+    padding: 10px;
+    font-weight: bolder;
+    color: #00595e;
+}
+
+.layer-panel label {
+    margin: 5px;
+    font-size: 12px;
+}
+
+.layer-panel__layer-item {
+    text-align: right;
+    padding: 10px;
+    direction: rtl;
+}
+
+.layer-panel__layer-item .setting-icon {
+    /* background-color: #5e0008; */
+    background-image: url(./img/delete.svg);
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 18px;
+    height: 18px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: 0px;
+    /* border-radius: 3px; */
+}
+
+.layer-panel__layer-item .zoom-icon {
+    background-color: #00595e;
+    background-image: url(./img/zooming.svg);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    cursor: pointer;
+    border: 0;
+    border-radius: 3px;
+}
+
+.layer-panel__layer-item:hover {
+    transition: all .3s;
+    background-color: #00595e59;
+}
+
+
+/* catalog */
+
+.catalog-control {
+    right: .5em;
+    top: 8.5em;
+}
+
+
+/* Identify */
+
+.identify-control {
+    right: .5em;
+    top: 6.5em;
+}
+
+
+/* mousePosition */
+
+.ol-mouse-position {
+    bottom: 5px;
+    top: unset;
+    right: 5px;
+    font-size: 14px;
+    width: 130px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #00595e94;
+    color: white;
+    position: absolute;
+    padding: 4px 5px;
+}
+
+
+/* scale line */
+
+.ol-scale-line {
+    background: #00595e;
+    z-index: 3;
+}
+
+.popup {
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    z-index: 1;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.popup-inner {
+    width: 250px;
+    height: 300px;
+    margin: auto;
+    margin-top: 100px;
+    background-color: white;
+    border: 1px gray solid;
+    box-shadow: 0px 0px 16px -5px;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #00595e;
+    color: white;
+    border: 0px;
+    margin: 5px;
+}
+
+.popup-inner input {
+    display: inline;
+    width: 130px;
+    margin: 5px;
+    height: 25px;
+}
+
+.popup-inner h3 {
+    padding: 5px;
+    background-color: #00595e;
+    color: white;
+}
+
+.search-layer-result {
+    height: 185px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px gray solid;
+}
+
+.service-layers {
+    height: 100%;
+    width: 100%;
+}
+
+.active-control {
+    background-color: rgb(226, 43, 43) !important;
+}
+
+#identify-table {
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;
+    background-color: #fff;
+    height: 40vh;
+    width: 100%;
+    overflow: scroll;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
