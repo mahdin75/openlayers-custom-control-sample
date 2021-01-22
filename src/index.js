@@ -14,8 +14,8 @@ import App from './app';
 const app = new App({
     rootId: "map",
     view: {
-        zoom: 4,
-        center: [-90, 40]
+        zoom: 7,
+        center: [51.6, 32.6]
     },
     defaultLayers: [{
             base: true,
@@ -26,20 +26,22 @@ const app = new App({
         {
             base: false,
             type: "WMS",
-            title: "USA States(WMS)",
+            title: "جاده های های ایران - WMS",
             visible: true,
-            url: 'https://ahocevar.com/geoserver/wms',
-            typename: 'topp:states',
-            serverType: 'geoserver'
+            url: 'http://194.5.195.215:8080/geoserver/wms',
+            typename: 'geonode:iran_roads',
+            serverType: 'geoserver',
+            bbox: "45.343083607583814,25.87553558146939,60.72475357068331,38.43886992035895"
         },
         {
             base: false,
             type: "WFS",
-            title: "ne_10m_populated_p(WFS)",
+            title: "شهر های ایران - WFS",
             visible: true,
-            url: "https://ahocevar.com/geoserver/wfs",
-            typename: "ne:ne_10m_populated_places",
-            srsname: "EPSG:3857"
+            url: "http://194.5.195.215:8080/geoserver/wfs",
+            typename: "geonode:iran_states",
+            srsname: "EPSG:3857",
+            bbox: "45.343083607583814,25.87553558146939,60.72475357068331,38.43886992035895"
         }
     ]
 });

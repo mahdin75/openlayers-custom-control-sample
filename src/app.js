@@ -68,7 +68,8 @@ class App {
                         title: layerState.title,
                         visible: layerState.visible,
                         type: layerState.base ? 'base' : '',
-                        sourceType: 'WMS'
+                        sourceType: 'WMS',
+                        gbbox: layerState.bbox,
                     })
                 )
                 break;
@@ -110,7 +111,9 @@ class App {
                                 radius: 5
                             })
                         }),
-                        sourceType: 'Vector'
+                        sourceType: 'Vector',
+                        gbbox: layerState.bbox,
+
                     })
                 )
                 break;

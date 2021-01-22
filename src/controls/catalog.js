@@ -57,7 +57,8 @@ class Catalog extends Control {
             }
             let resultHTML = `<select class="service-layers" name="service-layers" multiple>`
             result.Capability.Layer.Layer.forEach(layer => {
-                resultHTML += `<option value="${layer.Name}">${layer.Title}</option>`;
+                console.log(layer)
+                resultHTML += `<option data-extent="${layer.EX_GeographicBoundingBox}" value="${layer.Name}">${layer.Title}</option>`;
             });
             resultHTML += `</select>`
             target.innerHTML = resultHTML;
@@ -66,7 +67,7 @@ class Catalog extends Control {
             target.innerHTML = 'error!'
         })
     }
-    addLayerToMap(option, url) {
+    addLayerToMap(option, url, gbbox) {
         this.getMap().addLayer(
             new Tile({
                 source: new TileWMS({
@@ -77,7 +78,8 @@ class Catalog extends Control {
                 }),
                 title: option.innerHTML,
                 visible: true,
-                sourceType: 'WMS'
+                sourceType: 'WMS',
+                gbbox: gbbox
             })
         );
     }
@@ -107,7 +109,7 @@ class Catalog extends Control {
             const selectElement = document.querySelector('.service-layers');
             for (var option of selectElement.options) {
                 if (option.selected) {
-                    self.addLayerToMap(option, urlServiceBox.value);
+                    self.addLayerToMap(option, urlServiceBox.value, option.getAttribute("data-extent"));
                 }
             }
             document.body.removeChild(document.body.querySelector(".popup"));

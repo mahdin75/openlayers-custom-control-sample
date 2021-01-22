@@ -1,4 +1,6 @@
 import { Control } from 'ol/control';
+import { transformExtent } from 'ol/proj';
+
 
 class LayerSwitcher extends Control {
     constructor(props) {
@@ -45,8 +47,7 @@ class LayerSwitcher extends Control {
     zoomHandler(layer) {
         const map = this.getMap();
         return function(evt) {
-            console.log(layer.getExtent() || layer.getSource().getExtent());
-            map.getView().fit(layer.getExtent(), map.getSize());
+            map.getView().fit(transformExtent(layer.get("gbbox").split(','), 'EPSG:4326', 'EPSG:3857'), map.getSize());
         }
     }
 
@@ -117,10 +118,10 @@ class LayerSwitcher extends Control {
                 input.setAttribute('type', 'checkbox');
                 input.setAttribute('name', `layer-${index}`);
 
-                // const zoomIcon = document.createElement('img');
-                // zoomIcon.className = "zoom-icon";
-                // layerItem.appendChild(zoomIcon);
-                // zoomIcon.onclick = this.zoomHandler(layer);
+                const zoomIcon = document.createElement('img');
+                zoomIcon.className = "zoom-icon";
+                layerItem.appendChild(zoomIcon);
+                zoomIcon.onclick = this.zoomHandler(layer);
 
                 const settingIcon = document.createElement('img');
                 settingIcon.className = "setting-icon";
